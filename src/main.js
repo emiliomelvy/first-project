@@ -13,18 +13,21 @@ import {
 
 import {
   faPhone,
-  faCaretDown,
   faCircleInfo,
   faArrowRightLong,
   faCircleCheck,
   faCheck,
+  faArrowUp,
+  faArrowsUpDown,
+  faAngleDown,
+  faAngleRight,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
   faPhone,
-  faCaretDown,
   faCircleInfo,
   faArrowRightLong,
   faTwitter,
@@ -33,7 +36,12 @@ library.add(
   faCircleCheck,
   faCheck,
   faInstagram,
-  faYoutube
+  faYoutube,
+  faArrowUp,
+  faArrowsUpDown,
+  faAngleDown,
+  faAngleRight,
+  faXmark
 );
 
 const app = createApp(App);

@@ -17,37 +17,15 @@
       <a href="#">Learn More</a>
     </div>
     <div class="right-section4">
-      <div class="card4-1-body">
+      <div v-for="(card, index) in cards" :key="index" :class="card.class">
         <span class="icon">
-          <span class="number"> 01 </span>
+          <span class="number"> {{ card.number }} </span>
         </span>
         <div class="text">
-          <h4>Collect Ideas</h4>
+          <h4>{{ card.title }}</h4>
           <p>
-            Nulla vitae elit libero pharetra augue <br />
-            dapibus.
+            {{ card.paragraph }}
           </p>
-        </div>
-      </div>
-      <div class="card4-2-body">
-        <span class="icon">
-          <span class="number"> 02 </span>
-        </span>
-        <div class="text">
-          <h4>Data Analysis</h4>
-          <p>
-            Vivamus sagittis lacus vel augue <br />
-            laoreet.
-          </p>
-        </div>
-      </div>
-      <div class="card4-3-body">
-        <span class="icon">
-          <span class="number"> 03 </span>
-        </span>
-        <div class="text">
-          <h4>Finalize Product</h4>
-          <p>Cras mattis consectetur purus sit amet.</p>
         </div>
       </div>
     </div>
@@ -55,7 +33,32 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cards: [
+        {
+          class: "card4-1-body",
+          number: "01",
+          title: "Collect Ideas",
+          paragraph: "Nulla vitae elit libero pharetra augue dapibus.",
+        },
+        {
+          class: "card4-2-body",
+          number: "02",
+          title: "Data Analysis",
+          paragraph: "Vivamus sagittis lacus vel augue laoreet.",
+        },
+        {
+          class: "card4-3-body",
+          number: "03",
+          title: "Finalize Product",
+          paragraph: "Cras mattis consectetur purus sit amet.",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -148,7 +151,7 @@ export default {};
   height: 60px;
   background-color: #fde6c6;
   border-radius: 100%;
-  margin: 0px 5px 20px 0;
+  margin: 0px 5px 20px 20px;
 }
 .text h4 {
   margin-bottom: 10px;

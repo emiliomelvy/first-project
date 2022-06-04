@@ -12,17 +12,74 @@
         <div class="job">{{ card.job }}</div>
         <p>{{ card.paragraph }}</p>
         <nav class="social">
-          <a :class="card.social[0]" href="#">
+          <a :class="card.social" href="#">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }"
           /></a>
-          <a :class="card.social[1]" href="#"
+          <a class="facebook" href="#"
             ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"
           /></a>
-          <a :class="card.social[2]" href="#"
+          <a class="dribble" href="#"
             ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'dribbble' }"
           /></a>
         </nav>
       </div>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <div class="card-body">
+        <img src="../assets/img/te2.jpg" alt="" />
+        <h4>Cory Zamora</h4>
+        <div class="job">Marketing Specialist</div>
+        <p>Fermentum massa justo sit amet risus morbi leo.</p>
+        <nav class="social">
+          <a class="twitter" href="#">
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }"
+          /></a>
+          <a class="facebook" href="#"
+            ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"
+          /></a>
+          <a class="dribble" href="#"
+            ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'dribbble' }"
+          /></a>
+        </nav>
+      </div>
+      <div class="card-body">
+        <img src="../assets/img/te3.jpg" alt="" />
+        <h4>Nikolas Brooten</h4>
+        <div class="job">Sales Manager</div>
+        <p>Fermentum massa justo sit amet risus morbi leo.</p>
+        <nav class="social">
+          <a class="twitter" href="#">
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }"
+          /></a>
+          <a class="facebook" href="#"
+            ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"
+          /></a>
+          <a class="dribble" href="#"
+            ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'dribbble' }"
+          /></a>
+        </nav>
+      </div>
+      <div class="card-body">
+        <img src="../assets/img/te4.jpg" alt="" />
+        <h4>Jackie Sanders</h4>
+        <div class="job">Investment Planner</div>
+        <p>Fermentum massa justo sit amet risus morbi leo.</p>
+        <nav class="social">
+          <a class="twitter" href="#">
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }"
+          /></a>
+          <a class="facebook" href="#"
+            ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"
+          /></a>
+          <a class="dribble" href="#"
+            ><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'dribbble' }"
+          /></a>
+        </nav>
+      </div>
+      <!--  -->
+      <!--  -->
+      <!--  -->
     </div>
   </div>
 </template>
@@ -43,20 +100,6 @@ export default {
           name: "Cory Zamora",
           image: "/src/assets/img/te2.jpg",
           job: "Marketing Specialist",
-          paragraph: "Fermentum massa justo sit amet risus morbi leo.",
-          social: ["twitter", "facebook", "dribble"],
-        },
-        {
-          name: "Nikolas Brooten",
-          image: "/src/assets/img/te3.jpg",
-          job: "Sales Manager",
-          paragraph: "Fermentum massa justo sit amet risus morbi leo.",
-          social: ["twitter", "facebook", "dribble"],
-        },
-        {
-          name: "Jackie Sanders",
-          image: "/src/assets/img/te4.jpg",
-          job: "Investment Planner",
           paragraph: "Fermentum massa justo sit amet risus morbi leo.",
           social: ["twitter", "facebook", "dribble"],
         },

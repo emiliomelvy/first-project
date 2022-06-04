@@ -15,22 +15,27 @@
         <nav class="social">
           <a href="#"
             ><font-awesome-icon
+              class="social-icon"
               :icon="{
                 prefix: 'fab',
                 iconName: 'twitter',
               }" /><font-awesome-icon
+              class="social-icon"
               :icon="{
                 prefix: 'fab',
                 iconName: 'facebook',
               }" /><font-awesome-icon
+              class="social-icon"
               :icon="{
                 prefix: 'fab',
                 iconName: 'dribbble',
               }" /><font-awesome-icon
+              class="social-icon"
               :icon="{
                 prefix: 'fab',
                 iconName: 'instagram',
               }" /><font-awesome-icon
+              class="social-icon"
               :icon="{ prefix: 'fab', iconName: 'youtube' }"
           /></a>
         </nav>
@@ -70,6 +75,7 @@ export default {};
 <style scoped>
 .container {
   background-color: #303e4e;
+  padding-bottom: 5rem;
 }
 .header {
   display: flex;
@@ -122,21 +128,63 @@ hr {
 .touch {
   display: flex;
   flex-direction: column;
+  width: 12%;
+  gap: 7px;
+  color: #cacaca;
+  font-weight: 500;
+}
+.touch h4 {
+  color: white;
+  font-size: 20px;
+}
+.touch p {
+  margin: 15px 0;
+  font-weight: 500;
+}
+.touch a {
+  text-decoration: none;
+  color: #cacaca;
+  font-weight: 500;
 }
 .learn {
   display: flex;
   flex-direction: column;
+  /* gap: 10px; */
+}
+.learn h4 {
+  color: white;
+  font-size: 20px;
+}
+.learn a {
+  text-decoration: none;
+  margin-top: 15px;
+  color: #cacaca;
+  font-weight: 500;
 }
 .newsletter {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  width: 18%;
+}
+
+.newsletter h4 {
+  color: white;
+  font-size: 20px;
+}
+
+.newsletter p {
+  color: #cacaca;
+  font-weight: 500;
 }
 
 .newsletter input {
-  padding: 12px 20px;
-  border: 1px solid white;
-  background-color: whitesmoke;
+  padding: 18px 0px;
+  border: 0.5px solid #68727e;
+  background-color: #303e4e;
   border-radius: 8px 0 0 8px;
+  text-align: center;
+  font-weight: 500;
 }
 .newsletter button {
   padding: 12px 20px;
@@ -149,9 +197,24 @@ hr {
 .newsletter form {
   display: flex;
 }
+
+.header .rounded-pill:hover {
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
+.touch a:hover {
+  color: #115db5;
+}
+.learn a:hover {
+  color: #115db5;
+}
 .newsletter button:hover {
   cursor: pointer;
   box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
+}
+.social .social-icon:hover {
+  transform: translateY(-3px);
+  transition: 0.3s;
 }
 </style>

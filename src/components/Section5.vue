@@ -8,7 +8,7 @@
       <h3>We bring solutions to make life easier for our clients.</h3>
       <div class="card-header">
         <div class="card-btn1">
-          <font-awesome-icon class="icon" icon="caret-down" />
+          <font-awesome-icon class="icon" icon="angle-down" />
           <button>Professional Design</button>
         </div>
         <div class="card-body1">
@@ -20,7 +20,7 @@
           </p>
         </div>
         <div class="card-btn2">
-          <font-awesome-icon class="icon" icon="caret-down" />
+          <font-awesome-icon class="icon" icon="angle-down" />
           <button>Top-Notch Support</button>
         </div>
         <!-- <div class="card-body1">
@@ -32,7 +32,7 @@
           </p>
         </div> -->
         <div class="card-btn3">
-          <font-awesome-icon class="icon" icon="caret-down" />
+          <font-awesome-icon class="icon" icon="angle-down" />
           <button>Header and Slider Option</button>
         </div>
         <!-- <div class="card-body1">

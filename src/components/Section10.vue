@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="test"></div> -->
   <div class="wrapper">
     <div class="wrapper-section10">
       <div class="left-sect10">
@@ -28,6 +29,7 @@
       <img src="../assets/img/c6.png" alt="" />
     </div>
   </div>
+  <div class="test2"></div>
 </template>
 
 <script>
@@ -98,5 +100,44 @@ export default {};
   transform: translateY(-3px);
   transition: 0.3s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+/* 
+.test {
+  background: white;
+  height: 209px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.test::before {
+  background: #fab758;
+  bottom: 163%;
+  content: "";
+  display: block;
+  height: 177%;
+  position: absolute;
+  right: 0px;
+  transform-origin: 50% 74.5%;
+  transform: rotate(-184deg);
+  width: 109%;
+} */
+.test2 {
+  background: #303e4e;
+  height: 87px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.test2::after {
+  background: white;
+  bottom: 198%;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: 100%;
+  transform-origin: 100% 99%;
+  transform: rotate(-176.1deg);
+  width: 142%;
 }
 </style>

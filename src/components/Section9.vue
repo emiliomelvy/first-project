@@ -62,7 +62,6 @@
           </div>
           <h4 class="card-plan2">Corporate Plan</h4>
           <div class="benefits2">
-            <!-- <ul class="benefits1"> -->
             <ul>
               <font-awesome-icon class="icon" icon="check" />
               <li class=""><strong>20</strong> Projects</li>

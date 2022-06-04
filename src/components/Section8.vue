@@ -2,44 +2,17 @@
   <div class="wrapper-sect8">
     <div class="left-sect8">
       <div class="card">
-        <div class="card-body1">
-          <div class="wrapper-cb1">
-            <p class="quote1">
-              “Cum sociis <br />
-              natoque penatibus et magnis dis parturient montes.”
+        <div
+          v-for="(card, index) in cards"
+          :key="index"
+          :class="card.classBody"
+        >
+          <div :class="card.classWrapper">
+            <p :class="card.classQuote">
+              {{ card.paragraph }}
             </p>
-            <h5>Coriss Ambady</h5>
-            <p class="job1">Financial Analyst</p>
-          </div>
-        </div>
-        <div class="card-body2">
-          <div class="wrapper-cb2">
-            <p class="quote2">
-              “Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-              auctor. Vestibulum id ligula porta felis euismod.”
-            </p>
-            <h5>Cory Zamora</h5>
-            <p class="job2">Marketing Specialist</p>
-          </div>
-        </div>
-        <div class="card-body3">
-          <div class="wrapper-cb3">
-            <p class="quote3">
-              “Donec id elit non porta gravida at eget metus. Duis mollis est
-              luctus commodo nisi erat.”
-            </p>
-            <h5>Barclay Widerski</h5>
-            <p class="job3">Sales Specialist</p>
-          </div>
-        </div>
-        <div class="card-body4">
-          <div class="wrapper-cb4">
-            <p class="quote4">
-              “Nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Aenean eu leo pellentesque.”
-            </p>
-            <h5>Jackie Sanders</h5>
-            <p class="job4">Investment Planner</p>
+            <h5>{{ card.name }}</h5>
+            <p :class="card.classJob">{{ card.job }}</p>
           </div>
         </div>
       </div>
@@ -65,7 +38,54 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cards: [
+        {
+          classBody: "card-body1",
+          classWrapper: "wrapper-cb1",
+          classQuote: "quote1",
+          classJob: "job1",
+          paragraph:
+            "Cum sociis natoque penatibus et magnis dis parturient montes.",
+          name: "Coriss Ambady",
+          job: "Financial Analyst",
+        },
+        {
+          classBody: "card-body2",
+          classWrapper: "wrapper-cb2",
+          classQuote: "quote2",
+          classJob: "job2",
+          paragraph:
+            "“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod.”",
+          name: "Cory Zamora",
+          job: "Marketing Specialist",
+        },
+        {
+          classBody: "card-body3",
+          classWrapper: "wrapper-cb3",
+          classQuote: "quote3",
+          classJob: "job3",
+          paragraph:
+            "  “Donec id elit non porta gravida at eget metus. Duis mollis est luctus commodo nisi erat.”",
+          name: "Barclay Widerski",
+          job: "Sales Specialist",
+        },
+        {
+          classBody: "card-body4",
+          classWrapper: "wrapper-cb4",
+          classQuote: "quote4",
+          classJob: "job4",
+          paragraph:
+            "  “Nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo pellentesque.”",
+          name: "Jackie Sanders",
+          job: "Investment Planner",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -207,7 +227,6 @@ export default {};
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  /* margin-left: 37px; */
   height: 17rem;
   width: 19rem;
   border-radius: 8px;
@@ -284,4 +303,24 @@ export default {};
   transition: 0.3s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
+/* 
+.test {
+  background: white;
+  height: 209px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.test::before {
+  background: #fab758;
+  bottom: 163%;
+  content: "";
+  display: block;
+  height: 177%;
+  position: absolute;
+  right: 0px;
+  transform-origin: 50% 74.5%;
+  transform: rotate(-184deg);
+  width: 109%;
+} */
 </style>

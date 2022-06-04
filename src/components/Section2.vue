@@ -8,68 +8,60 @@
     </div>
   </div>
   <div class="wrapper-service">
-    <div class="serv area-one">
+    <div v-for="(card, index) in cards" :key="index" class="serv area">
       <div class="wrapper-content">
-        <img src="../assets/img/icons8-search.svg" alt="search" />
-        <h4>SEO Services</h4>
+        <img :src="card.image" alt="search" />
+        <h4>{{ card.title }}</h4>
         <span>
           <p>
-            Nulla vitae elit libero, a pharetra augue. Donec id elit non mi
-            porta gravida at eget metus cras justo.
+            {{ card.paragraph }}
           </p>
         </span>
-        <a href="#">
+        <a :class="card.class" href="#">
           Learn More <font-awesome-icon icon="arrow-right-long" />
         </a>
-      </div>
-    </div>
-    <div class="serv area-two">
-      <div class="wrapper-content">
-        <img src="../assets/img/icons8-web-design-64.png" alt="web-design" />
-        <h4>Web Design</h4>
-        <span>
-          <p>
-            Nulla vitae elit libero, a pharetra augue. Donec id elit non mi
-            porta gravida at eget metus cras justo.
-          </p>
-        </span>
-        <a href="#">Learn More <font-awesome-icon icon="arrow-right-long" /></a>
-      </div>
-    </div>
-    <div class="serv area-three">
-      <div class="wrapper-content">
-        <img src="../assets/img/icons8-social-64.png" alt="social-engagement" />
-        <h4>Social Engagement</h4>
-        <span
-          ><p>
-            Nulla vitae elit libero, a pharetra augue. Donec id elit non mi
-            porta gravida at eget metus cras justo.
-          </p>
-        </span>
-        <a href="#">Learn More <font-awesome-icon icon="arrow-right-long" /></a>
-      </div>
-    </div>
-    <div class="serv area-four">
-      <div class="wrapper-content">
-        <img
-          src="../assets/img/icons8-content-marketing-64.png"
-          alt="content-marketing"
-        />
-        <h4>Content Marketing</h4>
-        <span>
-          <p>
-            Nulla vitae elit libero, a pharetra augue. Donec id elit non mi
-            porta gravida at eget metus cras justo.
-          </p>
-        </span>
-        <a href="#">Learn More <font-awesome-icon icon="arrow-right-long" /></a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cards: [
+        {
+          image: "/src/assets/img/icons8-search.svg",
+          title: "SEO Services",
+          class: "arrow1",
+          paragraph:
+            "Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.",
+        },
+        {
+          image: "/src/assets/img/icons8-web-design-64.png",
+          title: "Web Design",
+          class: "arrow2",
+          paragraph:
+            "Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.",
+        },
+        {
+          image: "/src/assets/img/icons8-social-64.png",
+          title: "Social Engagement",
+          class: "arrow3",
+          paragraph:
+            "Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.",
+        },
+        {
+          image: "/src/assets/img/icons8-content-marketing-64.png",
+          title: "Content Marketing",
+          class: "arrow4",
+          paragraph:
+            "Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -77,6 +69,7 @@ export default {};
 * {
   font-family: "Manrope", sans-serif;
 }
+
 .wrapper-section2 {
   margin-top: 8rem;
   display: flex;
@@ -102,9 +95,6 @@ export default {};
   height: 23em;
   gap: 25px;
   margin: 0 50px;
-  /* grid-template-areas:
-    "one two"
-    "three four"; */
 }
 
 .wrapper-service .serv {
@@ -131,50 +121,36 @@ export default {};
   padding: 0 45px;
   color: #60697b;
 }
-.wrapper-service .area-one {
+
+.wrapper-content .arrow1 {
+  color: #e7b271;
+}
+.wrapper-content .arrow2 {
+  color: #03bbe0;
+}
+.wrapper-content .arrow3 {
+  color: #f6129e;
+}
+.wrapper-content .arrow4 {
+  color: #e27739;
+}
+.wrapper-service .area {
   /* grid-area: one; */
   text-align: center;
 }
-.wrapper-service .area-one img {
-  margin: 0 auto;
-  max-width: 64px;
-  max-height: 64px;
-}
-.wrapper-service .area-two {
-  /* grid-area: two; */
-  text-align: center;
-}
-.wrapper-service .area-two img {
+.wrapper-service .area img {
   margin: 0 auto;
   max-width: 64px;
   max-height: 64px;
 }
 
-.wrapper-service .area-three {
-  /* grid-area: three; */
-  text-align: center;
-}
-.wrapper-service .area-three img {
-  margin: 0 auto;
-  max-width: 64px;
-  max-height: 64px;
-}
-.wrapper-service .area-four {
-  /* grid-area: four; */
-  text-align: center;
-}
-.wrapper-service .area-four img {
-  margin: 0 auto;
-  max-width: 64px;
-  max-height: 64px;
-}
-.area-one a {
+.area a {
   display: inline-block;
   width: 100%;
   position: relative;
   color: #e7b271;
 }
-.area-one a::after {
+.area a::after {
   content: "";
   position: absolute;
   width: 39%;
@@ -187,79 +163,11 @@ export default {};
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
-.area-one a:hover:after {
+.area a:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-.area-two a {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-  color: #03bbe0;
-}
-.area-two a::after {
-  content: "";
-  position: absolute;
-  width: 39%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  top: 27px;
-  left: 30%;
-  background-color: #03bbe0;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.area-two a:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.area-three a {
-  color: #f6129e;
-  display: inline-block;
-  width: 100%;
-  position: relative;
-}
-.area-three a::after {
-  content: "";
-  position: absolute;
-  width: 39%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  top: 27px;
-  left: 30%;
-  background-color: #f6129e;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.area-three a:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.area-four a {
-  color: #e27739;
-  display: inline-block;
-  width: 100%;
-  position: relative;
-}
-.area-four a::after {
-  content: "";
-  position: absolute;
-  width: 39%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  top: 27px;
-  left: 30%;
-  background-color: #e27739;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.area-four a:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
+
 .serv a {
   text-decoration: none;
 }

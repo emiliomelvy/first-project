@@ -12,6 +12,7 @@ import Section8 from "./components/Section8.vue";
 import Section9 from "./components/Section9.vue";
 import Section10 from "./components/Section10.vue";
 import Footer from "./components/Footer.vue";
+import ProgressScroll from "./components/ProgressScroll.vue";
 
 const store = useCounterStore();
 </script>
@@ -20,6 +21,7 @@ const store = useCounterStore();
   <!-- <font-awesome-icon :icon="['fas', 'phone']" />
   <font-awesome-icon icon="caret-down" /> -->
   <Navbar />
+
   <Section1 />
   <Section2 />
   <Section3 />
@@ -31,6 +33,8 @@ const store = useCounterStore();
   <Section9 />
   <Section10 />
   <Footer />
+  <ProgressScroll />
+
   <!-- <HelloWorldVue /> -->
 </template>
 
@@ -42,6 +46,5 @@ const store = useCounterStore();
   margin: 0;
   top: 0;
   padding: 0;
-  /* background-color: rgb(250, 248, 245); */
 }
 </style>

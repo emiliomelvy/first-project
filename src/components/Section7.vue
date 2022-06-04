@@ -1,36 +1,26 @@
 <template>
   <div class="wrapper-sect7">
     <div class="left-sect7">
-      <h2>Our Solutions</h2>
+      <h2>{{ header.header }}</h2>
       <h3>
-        We make your <br />
-        spending stress-free for <br />
-        you to have the perfect control.
+        {{ header.title }}
       </h3>
       <p>
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget
-        quam. Praesent commodo cursus.
+        {{ header.paragraph }}
       </p>
       <div class="table">
-        <div class="list1">
+        <div
+          v-for="(body, index) in body"
+          :key="index"
+          :class="body.firstClass"
+        >
           <ul>
             <font-awesome-icon class="icon" icon="circle-check" />
-            <li>Aenean quam ornare. Curabitur blandit.</li>
+            <li>{{ body.classList }}</li>
           </ul>
-          <ul class="bt-list">
+          <ul :class="body.secondClass">
             <font-awesome-icon class="icon" icon="circle-check" />
-            <li>Nullam quis risus eget urna mollis ornare.</li>
-          </ul>
-        </div>
-        <div class="list2">
-          <ul>
-            <font-awesome-icon class="icon" icon="circle-check" />
-            <li>Etiam porta euismod malesuada mollis.</li>
-          </ul>
-          <ul class="bt-list">
-            <font-awesome-icon class="icon" icon="circle-check" />
-            <li>Vivamus sagittis lacus vel augue rutrum.</li>
+            <li>{{ body.classBt }}</li>
           </ul>
         </div>
       </div>
@@ -42,7 +32,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      header: {
+        header: "OUR SOLUTIONS",
+        title:
+          "We make your spending stress-free for you to have the perfect control.",
+        paragraph:
+          "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus.",
+      },
+      body: [
+        {
+          firstClass: "list",
+          secondClass: "bt-list",
+          classList: "Aenean quam ornare. Curabitur blandit.",
+          classBt: "Nullam quis risus eget urna mollis ornare.",
+        },
+        {
+          firstClass: "list",
+          secondClass: "bt-list",
+          classList: "Etiam porta euismod malesuada mollis.",
+          classBt: "Vivamus sagittis lacus vel augue rutrum.",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -86,37 +102,21 @@ export default {};
 /* .list1 {
   display: flex;
 } */
-.list1 ul {
+.list ul {
   display: flex;
   list-style-type: none;
 }
-.list1 .icon {
+.list .icon {
   margin: 4px 8px 0 0;
   color: #fde6c6;
 }
-.list1 li {
+.list li {
   color: #60697b;
   font-weight: 500;
   line-height: 27px;
   font-weight: 500;
 }
-/* .list2 {
-  display: flex;
-} */
-.list2 ul {
-  display: flex;
-  list-style-type: none;
-}
-.list2 .icon {
-  margin: 4px 8px 0 0;
-  color: #fde6c6;
-}
-.list2 li {
-  color: #60697b;
-  font-weight: 500;
-  line-height: 27px;
-  font-weight: 500;
-}
+
 .bt-list {
   margin-top: 20px;
 }
