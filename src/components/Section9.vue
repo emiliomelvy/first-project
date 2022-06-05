@@ -13,7 +13,7 @@
       <div class="switcher">
         <p>Monthly</p>
         <label class="switch">
-          <input type="checkbox" />
+          <input @click="activated" type="checkbox" />
           <span class="slider"></span>
         </label>
         <p>
@@ -22,68 +22,51 @@
         </p>
       </div>
       <div class="card-wrapper">
-        <div class="card-body1">
-          <div class="price1">
-            <span class="price-currency1">$</span>
-            <span class="price-value1">19</span>
-            <span class="price-duration1">/mo</span>
+        <div
+          v-for="(card, index) in cards"
+          :key="index"
+          :class="card.classBody"
+        >
+          <div :class="card.classPrice">
+            <span :class="card.classCurrency">{{ card.currency }}</span>
+            <span :class="card.classValue">{{ card.value }}</span>
+            <span :class="card.classDuration">{{ card.duration }}</span>
           </div>
-          <h4 class="card-plan1">Premium Plan</h4>
-          <div class="benefits1">
+          <h4 :class="card.classPlan">{{ card.plan }}</h4>
+          <div :class="card.classBenefits">
             <ul>
               <font-awesome-icon class="icon" icon="check" />
-              <li class=""><strong>5</strong> Projects</li>
+              <li class="">
+                <strong>{{ card.numProject }}</strong> {{ card.project }}
+              </li>
             </ul>
             <ul>
               <font-awesome-icon class="icon" icon="check" />
-              <li class=""><strong>100K</strong> API Access</li>
+              <li class="">
+                <strong>{{ card.numAPI }}</strong> {{ card.API }}
+              </li>
             </ul>
             <ul>
               <font-awesome-icon class="icon" icon="check" />
-              <li class=""><strong>200MB</strong> Storage</li>
+              <li class="">
+                <strong>{{ card.numStorage }}</strong> {{ card.storage }}
+              </li>
             </ul>
             <ul>
               <font-awesome-icon class="icon" icon="check" />
-              <li class="">Weekly <strong>Reports</strong></li>
+              <li class="">
+                {{ card.totalReport }} <strong>{{ card.report }}</strong>
+              </li>
             </ul>
             <ul>
               <font-awesome-icon class="icon" icon="check" />
-              <li class="">7/24 <strong>Support</strong></li>
+              <li class="">
+                {{ card.hour }} <strong>{{ card.supp }}</strong>
+              </li>
             </ul>
           </div>
           <!-- </ul> -->
-          <a href="#" class="rounded-pill">Choose Plan</a>
-        </div>
-        <div class="card-body2">
-          <div class="price2">
-            <span class="price-currency2">$</span>
-            <span class="price-value2">49</span>
-            <span class="price-duration2">/mo</span>
-          </div>
-          <h4 class="card-plan2">Corporate Plan</h4>
-          <div class="benefits2">
-            <ul>
-              <font-awesome-icon class="icon" icon="check" />
-              <li class=""><strong>20</strong> Projects</li>
-            </ul>
-            <ul>
-              <font-awesome-icon class="icon" icon="check" />
-              <li class=""><strong>300K</strong> API Access</li>
-            </ul>
-            <ul>
-              <font-awesome-icon class="icon" icon="check" />
-              <li class=""><strong>500MB</strong> Storage</li>
-            </ul>
-            <ul>
-              <font-awesome-icon class="icon" icon="check" />
-              <li class="">Weekly <strong>Reports</strong></li>
-            </ul>
-            <ul>
-              <font-awesome-icon class="icon" icon="check" />
-              <li class="">7/24 <strong>Support</strong></li>
-            </ul>
-          </div>
-          <a href="#" class="rounded-pill">Choose Plan</a>
+          <a href="#" :class="card.pill">Choose Plan</a>
         </div>
       </div>
     </div>
@@ -91,7 +74,65 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      show: {
+        showing: true,
+      },
+      cards: [
+        {
+          classBody: "card-body1",
+          classPlan: "card-plan1",
+          classBenefits: "benefits1",
+          classPrice: "price1",
+          classCurrency: "price-currency1",
+          classValue: "price-value1",
+          classDuration: "price-duration1",
+          currency: "$",
+          value: "19",
+          duration: "/mo",
+          plan: "Premium Plan",
+          numProject: "5",
+          project: "Projects",
+          numAPI: "100K",
+          API: "API Access",
+          numStorage: "200MB",
+          storage: "Storage",
+          totalReport: "Weekly",
+          report: "Reports",
+          hour: "7/24",
+          supp: "Support",
+          pill: "rounded-pill",
+        },
+        {
+          classBody: "card-body2",
+          classPlan: "card-plan2",
+          classBenefits: "benefits2",
+          classPrice: "price2",
+          classCurrency: "price-currency2",
+          classValue: "price-value2",
+          classDuration: "price-duration2",
+          currency: "$",
+          value: "49",
+          duration: "/mo",
+          plan: "Corporate Plan",
+          numProject: "20",
+          project: "Projects",
+          numAPI: "300K",
+          API: "API Access",
+          numStorage: "500MB",
+          storage: "Storage",
+          totalReport: "Weekly",
+          report: "Reports",
+          hour: "7/24",
+          supp: "Support",
+          pill: "rounded-pill",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

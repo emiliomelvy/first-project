@@ -48,11 +48,9 @@
       </div>
       <div class="learn">
         <h4>Learn More</h4>
-        <a href="#">About Us</a>
-        <a href="#">Our Story</a>
-        <a href="#">Projects</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy Policy</a>
+        <a v-for="(list, index) in lists" :key="index" href="#">{{
+          list.anchor
+        }}</a>
       </div>
       <div class="newsletter">
         <h4>Our Newsletter</h4>
@@ -69,7 +67,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      lists: [
+        {
+          anchor: "About Us",
+        },
+        {
+          anchor: "Our Story",
+        },
+        {
+          anchor: "Projects",
+        },
+        {
+          anchor: "Terms of Use",
+        },
+        {
+          anchor: "Privacy Policy",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

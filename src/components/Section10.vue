@@ -21,19 +21,32 @@
       </div>
     </div>
     <div class="row-logo">
-      <img src="../assets/img/c1.png" alt="" />
-      <img src="../assets/img/c2.png" alt="" />
-      <img src="../assets/img/c3.png" alt="" />
-      <img src="../assets/img/c4.png" alt="" />
-      <img src="../assets/img/c5.png" alt="" />
-      <img src="../assets/img/c6.png" alt="" />
+      <img
+        v-for="(image, index) in images"
+        :key="index"
+        :src="image.image"
+        alt=""
+      />
     </div>
   </div>
   <div class="test2"></div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      images: [
+        { image: "/src/assets/img/c1.png" },
+        { image: "/src/assets/img/c2.png" },
+        { image: "/src/assets/img/c3.png" },
+        { image: "/src/assets/img/c4.png" },
+        { image: "/src/assets/img/c5.png" },
+        { image: "/src/assets/img/c6.png" },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>

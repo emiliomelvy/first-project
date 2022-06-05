@@ -109,8 +109,6 @@ export default {
   font-size: 18px;
 }
 .wrapper-content {
-  /* background: salmon; */
-  /* padding: 0 55px; */
   height: 15em;
   gap: 20px;
   display: flex;
@@ -135,7 +133,6 @@ export default {
   color: #e27739;
 }
 .wrapper-service .area {
-  /* grid-area: one; */
   text-align: center;
 }
 .wrapper-service .area img {
