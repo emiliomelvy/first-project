@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper-sect7">
+    <div class="right-sect7">
+      <img src="../assets/img/i8.png" alt="" />
+    </div>
     <div class="left-sect7">
       <h2>{{ header.header }}</h2>
       <h3>
@@ -24,9 +27,6 @@
           </ul>
         </div>
       </div>
-    </div>
-    <div class="right-sect7">
-      <img src="../assets/img/i8.png" alt="" />
     </div>
   </div>
 </template>
@@ -123,5 +123,39 @@ export default {
 /* RIGHT SECTION */
 .right-sect7 {
   width: 90%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .right-sect7 img {
+    margin-top: 10rem;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-sect7 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .left-sect7 {
+    max-width: 100%;
+    align-content: center;
+  }
+
+  .left-sect7 p {
+    max-width: 100%;
+  }
+
+  .right-sect7 img {
+    /* width: 80%; */
+    margin: 5rem auto;
+  }
+  .table {
+    flex-direction: column;
+    gap: 25px;
+  }
 }
 </style>

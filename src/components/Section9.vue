@@ -13,7 +13,7 @@
       <div class="switcher">
         <p>Monthly</p>
         <label class="switch">
-          <input @click="activated" type="checkbox" />
+          <input @click="changePrice" type="checkbox" />
           <span class="slider"></span>
         </label>
         <p>
@@ -28,9 +28,33 @@
           :class="card.classBody"
         >
           <div :class="card.classPrice">
-            <span :class="card.classCurrency">{{ card.currency }}</span>
-            <span :class="card.classValue">{{ card.value }}</span>
-            <span :class="card.classDuration">{{ card.duration }}</span>
+            <span
+              v-if="changer"
+              class="showingAnimation"
+              :class="card.classCurrency"
+              >{{ card.currency }}</span
+            >
+            <span v-else class="showingAnimation" :class="card.classCurrency">{{
+              card.currency
+            }}</span>
+            <span
+              v-if="changer"
+              class="showingAnimation"
+              :class="card.classValue"
+              >{{ card.value }}</span
+            >
+            <span v-else class="showingAnimation" :class="card.classValue">{{
+              card.secondValue
+            }}</span>
+            <span
+              v-if="changer"
+              class="showingAnimation"
+              :class="card.classDuration"
+              >{{ card.duration }}</span
+            >
+            <span v-else class="showingAnimation" :class="card.classDuration">{{
+              card.secondDuration
+            }}</span>
           </div>
           <h4 :class="card.classPlan">{{ card.plan }}</h4>
           <div :class="card.classBenefits">
@@ -77,9 +101,7 @@
 export default {
   data() {
     return {
-      show: {
-        showing: true,
-      },
+      changer: true,
       cards: [
         {
           classBody: "card-body1",
@@ -91,7 +113,9 @@ export default {
           classDuration: "price-duration1",
           currency: "$",
           value: "19",
+          secondValue: "199",
           duration: "/mo",
+          secondDuration: "/yr",
           plan: "Premium Plan",
           numProject: "5",
           project: "Projects",
@@ -115,7 +139,9 @@ export default {
           classDuration: "price-duration2",
           currency: "$",
           value: "49",
+          secondValue: "499",
           duration: "/mo",
+          secondDuration: "/yr",
           plan: "Corporate Plan",
           numProject: "20",
           project: "Projects",
@@ -131,6 +157,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    changePrice() {
+      this.changer = !this.changer;
+    },
   },
 };
 </script>
@@ -355,5 +386,57 @@ input:checked + .slider::before {
   transform: translateY(-3px);
   transition: 0.3s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.showingAnimation {
+  animation: fade_in_show 0.5s;
+}
+@keyframes fade_in_show {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-section9 {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .left-sect9 {
+    margin-top: 0;
+  }
+  .switcher {
+    justify-content: left;
+  }
+
+  .card-body1 {
+    margin: 0 0 0 40px;
+    height: 34rem;
+    width: 20rem;
+  }
+  .card-body2 {
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-body1 {
+    width: 80%;
+  }
+  .card-body2 {
+    width: 80%;
+  }
 }
 </style>

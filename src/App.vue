@@ -18,10 +18,7 @@ const store = useCounterStore();
 </script>
 
 <template>
-  <!-- <font-awesome-icon :icon="['fas', 'phone']" />
-  <font-awesome-icon icon="caret-down" /> -->
   <Navbar />
-
   <Section1 />
   <Section2 />
   <Section3 />
@@ -34,8 +31,6 @@ const store = useCounterStore();
   <Section10 />
   <Footer />
   <ProgressScroll />
-
-  <!-- <HelloWorldVue /> -->
 </template>
 
 <style>
@@ -46,5 +41,12 @@ const store = useCounterStore();
   margin: 0;
   top: 0;
   padding: 0;
+}
+
+@media only screen and (max-width: 991px) {
+  html {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
 }
 </style>

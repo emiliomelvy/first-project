@@ -153,4 +153,29 @@ export default {
   transform: rotate(-176.1deg);
   width: 142%;
 }
+
+@media only screen and (max-width: 1200px) {
+  .left-sect10 {
+    margin: auto 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-section10 {
+    flex-direction: column;
+  }
+  .right-sect10 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .row-logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin: 10% auto;
+    justify-items: center;
+  }
+}
 </style>

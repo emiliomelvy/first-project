@@ -160,4 +160,47 @@ export default {
   transform: translateY(-5px);
   transition: 0.5s;
 }
+
+@media only screen and (max-width: 1200px) {
+  /* .wrapper-sect6 {
+    width: 97.1%;
+  } */
+  .wrapper-sect6 .card {
+    width: 100%;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .card-body {
+    box-shadow: 0 0 20px 2px rgb(0 0 0 / 10%);
+    background-color: white;
+    border-radius: 10px;
+    /* width: 30rem; */
+    min-width: 80%;
+    /* max-width: 250px; */
+    /* min-height: 350px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 2rem;
+    gap: 20px;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .wrapper-sect6 h3 {
+      max-width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper-sect6 .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body {
+    margin: 0 auto;
+  }
+}
 </style>

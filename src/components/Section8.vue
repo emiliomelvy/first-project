@@ -303,4 +303,59 @@ export default {
   transition: 0.3s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
+
+@media only screen and (max-width: 1200px) {
+  .card-body2 {
+    margin-left: 0;
+  }
+  .card-body3 {
+    margin-left: 0;
+  }
+  .card-body4 {
+    height: 21rem;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-sect8 {
+    flex-direction: column;
+    margin: 8rem auto;
+  }
+
+  .left-sect8 {
+    margin: 0 auto;
+  }
+  .right-sect8 {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body1 {
+    width: 80%;
+    margin: 0 auto;
+    height: 13rem;
+  }
+  .card-body2 {
+    width: 80%;
+    margin: 0 auto;
+    height: 13rem;
+  }
+  .card-body3 {
+    width: 80%;
+    margin: 0 auto;
+    height: 13rem;
+  }
+  .card-body4 {
+    width: 80%;
+    margin: 0 auto;
+    height: 13rem;
+  }
+}
 </style>

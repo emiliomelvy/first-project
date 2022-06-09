@@ -7,52 +7,103 @@
       <h2>Why choose us?</h2>
       <h3>We bring solutions to make life easier for our clients.</h3>
       <div class="card-header">
-        <div class="card-btn1">
-          <font-awesome-icon class="icon" icon="angle-down" />
-          <button>Professional Design</button>
+        <div class="wrapper-btn">
+          <div @click="sectionStore.showText('first')" class="card-btn1">
+            <font-awesome-icon
+              class="icon"
+              :class="{ iconActive: sectionStore.isActive === 'first' }"
+              icon="angle-down"
+            />
+            <button>Professional Design</button>
+          </div>
+          <div
+            :class="{ active: sectionStore.isActive === 'first' }"
+            class="card-body1"
+          >
+            <p>
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+              nibh, ut fermentum massa justo sit amet risus. Cras mattis
+              consectetur purus sit amet fermentum. Praesent commodo cursus
+              magna, vel.
+            </p>
+          </div>
         </div>
-        <div class="card-body1">
-          <p>
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-            nibh, ut fermentum massa justo sit amet risus. Cras mattis
-            consectetur purus sit amet fermentum. Praesent commodo cursus magna,
-            vel.
-          </p>
+        <div class="wrapper-btn">
+          <div @click="sectionStore.showText('second')" class="card-btn2">
+            <font-awesome-icon
+              :class="{ iconActive: sectionStore.isActive === 'second' }"
+              class="icon"
+              icon="angle-down"
+            />
+            <button>Top-Notch Support</button>
+          </div>
+          <div
+            :class="{ active: sectionStore.isActive === 'second' }"
+            class="card-body1"
+          >
+            <p>
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+              nibh, ut fermentum massa justo sit amet risus. Cras mattis
+              consectetur purus sit amet fermentum. Praesent commodo cursus
+              magna, vel.
+            </p>
+          </div>
         </div>
-        <div class="card-btn2">
-          <font-awesome-icon class="icon" icon="angle-down" />
-          <button>Top-Notch Support</button>
+        <div class="wrapper-btn">
+          <div @click="sectionStore.showText('third')" class="card-btn3">
+            <font-awesome-icon
+              :class="{ iconActive: sectionStore.isActive === 'third' }"
+              class="icon"
+              icon="angle-down"
+            />
+            <button>Header and Slider Option</button>
+          </div>
+          <div
+            :class="{ active: sectionStore.isActive === 'third' }"
+            class="card-body1"
+          >
+            <p>
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+              nibh, ut fermentum massa justo sit amet risus. Cras mattis
+              consectetur purus sit amet fermentum. Praesent commodo cursus
+              magna, vel.
+            </p>
+          </div>
         </div>
-        <!-- <div class="card-body1">
-          <p>
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-            nibh, ut fermentum massa justo sit amet risus. Cras mattis
-            consectetur purus sit amet fermentum. Praesent commodo cursus magna,
-            vel.
-          </p>
-        </div> -->
-        <div class="card-btn3">
-          <font-awesome-icon class="icon" icon="angle-down" />
-          <button>Header and Slider Option</button>
-        </div>
-        <!-- <div class="card-body1">
-          <p>
-            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-            nibh, ut fermentum massa justo sit amet risus. Cras mattis
-            consectetur purus sit amet fermentum. Praesent commodo cursus magna,
-            vel.
-          </p>
-        </div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useSectionStore } from "@/stores/useSectionStore";
+export default {
+  setup() {
+    const sectionStore = useSectionStore();
+    return {
+      sectionStore,
+    };
+  },
+};
 </script>
 
 <style scoped>
+.wrapper-btn .active {
+  display: block;
+  animation: fade_in_show 0.5s;
+}
+
+.iconActive {
+  transform: rotateX(180deg);
+  animation: fade_in_show 0.5s;
+}
+
+.wrapper-btn .show {
+  display: none;
+}
+.wrapper-btn .hide {
+  display: block;
+}
 .wrapper-section5 {
   margin: 10rem 40px 0 85px;
   display: flex;
@@ -69,6 +120,7 @@ export default {};
 
 .right-sect5 {
   /* max-width: 45%; */
+  min-width: 49.5%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -94,7 +146,7 @@ export default {};
 .card-btn1 .icon {
   margin-top: 5px;
   color: #e2880a;
-  transform: rotateX(180deg);
+  /* transform: rotateX(180deg); */
 }
 .card-btn1:hover {
   cursor: pointer;
@@ -109,7 +161,7 @@ export default {};
   display: flex;
   gap: 10px;
   font-size: 18px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 .card-btn2 button {
   background-color: white;
@@ -153,14 +205,37 @@ export default {};
   border: none;
   font-size: 18px;
 }
+.card-body1 {
+  display: none;
+  animation: fade_in_show 0.5s;
+}
 
 .card-body1 p {
   color: #60697b;
   max-width: 75%;
-  /* margin: 0 10px 0 20px; */
   margin-left: 22px;
+  margin-bottom: 20px;
   line-height: 1.95rem;
   font-weight: 500;
   font-size: 17px;
+}
+
+@keyframes fade_in_show {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-section5 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
 }
 </style>

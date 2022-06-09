@@ -522,7 +522,7 @@ export default {
   height: 95vh;
   position: absolute;
   top: 4rem;
-  left: 0;
+  left: 5px;
   border-radius: 7px;
   display: grid;
   overflow-y: scroll;
@@ -550,8 +550,8 @@ export default {
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 38.5rem;
-  left: 0;
+  top: 625px;
+  left: 5px;
   width: 71.5rem;
   border-radius: 7px;
   font-size: 15px;
@@ -579,7 +579,7 @@ export default {
   height: 20rem;
   position: absolute;
   top: 4rem;
-  left: 22rem;
+  left: 23rem;
   border-radius: 7px;
   /* opacity: 0;
   z-index: -1; */
@@ -777,7 +777,7 @@ export default {
   height: 15rem;
   position: absolute;
   top: 4rem;
-  left: 24rem;
+  left: 22.5rem;
   border-radius: 7px;
   display: flex;
   gap: 20px;
@@ -861,7 +861,7 @@ export default {
   height: 10.6rem;
   position: absolute;
   top: 4rem;
-  left: 36rem;
+  left: 35rem;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
@@ -958,8 +958,6 @@ export default {
   background-color: #303e4e;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  /* opacity: 0;
-  z-index: -1; */
   display: none;
 }
 .blocks-wrapper img {
@@ -1079,4 +1077,35 @@ export default {
 }
 
 /* -------------------- */
+
+@media only screen and (max-width: 1200px) {
+  .content {
+    width: 65rem;
+    left: 46px;
+  }
+
+  .scroll-view {
+    top: 535px;
+    left: 46px;
+    width: 65rem;
+  }
+
+  .blocks-wrapper {
+    width: 65rem;
+    left: 46px;
+  }
+  .blocks-wrapper img {
+    margin: 30px 0px 6px -16px;
+  }
+
+  .documentation-content {
+    width: 64rem;
+    left: 59px;
+  }
+
+  .usage-styleguide {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
 </style>

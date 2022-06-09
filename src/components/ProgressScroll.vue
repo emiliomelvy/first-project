@@ -1,5 +1,5 @@
 <template>
-  <div class="progress">
+  <div @click="scrollToTop" class="progress">
     <span class="progress-value">
       <font-awesome-icon class="icon" icon="arrow-up"
     /></span>
@@ -7,7 +7,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+  },
+};
 </script>
 
 <style>
@@ -28,7 +34,7 @@ export default {};
   border: 1px solid #60697b;
   cursor: pointer;
 }
-.progress-value {
+/* .progress-value {
   display: block;
   height: calc(100% - 15px);
   width: calc(100% - 15px);
@@ -38,9 +44,15 @@ export default {};
   place-items: center;
   font-size: 35px;
   color: #001a2e;
-}
+} */
 .icon {
   color: #fab758;
   font-size: 17px;
+}
+
+@media only screen and (max-width: 768px) {
+  .progress {
+    display: none;
+  }
 }
 </style>

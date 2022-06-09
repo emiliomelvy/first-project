@@ -52,6 +52,7 @@
           list.anchor
         }}</a>
       </div>
+
       <div class="newsletter">
         <h4>Our Newsletter</h4>
         <p>
@@ -236,5 +237,65 @@ hr {
 .social .social-icon:hover {
   transform: translateY(-3px);
   transition: 0.3s;
+}
+
+@media only screen and (max-width: 991px) {
+  .body {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header1 header2 header3"
+      "footer footer footer";
+  }
+  .sandbox {
+    grid-area: header1;
+    margin: 0 auto;
+  }
+  .touch {
+    grid-area: header2;
+    width: 70%;
+    margin: 0 auto;
+  }
+  .learn {
+    grid-area: header3;
+    margin: 0 auto;
+  }
+
+  .newsletter {
+    grid-area: footer;
+    width: 100%;
+    margin: 0 10%;
+  }
+
+  .newsletter input {
+    width: 60%;
+    text-align: left;
+    padding: 5px 15px;
+  }
+
+  .newsletter button {
+    width: 12%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .body {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+  }
+  .sandbox {
+    margin: 0 0 10%;
+  }
+  .touch {
+    margin: 0 0 10%;
+  }
+  .learn {
+    margin: 0 0 10%;
+  }
+  .newsletter {
+    margin: 0 0 10%;
+  }
 }
 </style>

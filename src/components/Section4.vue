@@ -1,5 +1,18 @@
 <template>
   <div class="wrapper-section4">
+    <div class="right-section4">
+      <div v-for="(card, index) in cards" :key="index" :class="card.class">
+        <span class="icon">
+          <span class="number"> {{ card.number }} </span>
+        </span>
+        <div class="text">
+          <h4>{{ card.title }}</h4>
+          <p>
+            {{ card.paragraph }}
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="left-section4">
       <h2>Our Strategy</h2>
       <h3>Here are 3 working steps to organize our business projects.</h3>
@@ -15,19 +28,6 @@
         consectetur.
       </p>
       <a href="#">Learn More</a>
-    </div>
-    <div class="right-section4">
-      <div v-for="(card, index) in cards" :key="index" :class="card.class">
-        <span class="icon">
-          <span class="number"> {{ card.number }} </span>
-        </span>
-        <div class="text">
-          <h4>{{ card.title }}</h4>
-          <p>
-            {{ card.paragraph }}
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -226,5 +226,82 @@ export default {
   color: #60697b;
   font-size: 15px;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 1200px) {
+  .card4-1-body {
+    width: 25rem;
+  }
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px 10px 10px;
+  }
+  .card4-1-body .text {
+    margin-right: 10px;
+  }
+  .card4-2-body {
+    width: 24rem;
+    margin: 40px 0 40px 45px;
+  }
+  .card4-2-body .text {
+    margin-right: 30px;
+  }
+
+  .card4-3-body {
+    width: 25rem;
+  }
+
+  .card4-3-body .text {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-section4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-section4 {
+    width: 100%;
+  }
+  .left-section4 {
+    width: 80%;
+  }
+  .card4-1-body {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: start;
+  }
+  .card4-2-body {
+    width: 80%;
+    margin: 45px auto;
+    display: flex;
+    justify-content: start;
+  }
+  .card4-3-body {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: start;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .card4-1-body {
+    width: 100%;
+  }
+  .card4-2-body {
+    width: 100%;
+  }
+  .card4-3-body {
+    width: 100%;
+  }
+  .card4-4-body {
+    width: 100%;
+  }
 }
 </style>

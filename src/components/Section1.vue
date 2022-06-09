@@ -73,4 +73,51 @@ export default {};
   display: inline-block;
   font-size: 17px;
 }
+
+@media only screen and (max-width: 1200px) {
+  /* .wrapper-section1 {
+    width: 80%;
+  } */
+  /* .left-section1 {
+    margin-left: 25%;
+  } */
+  .left-section1 img {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-section1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-section1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 85%;
+  }
+  .right-section1 h1 {
+    text-align: center;
+  }
+  .right-section1 p {
+    text-align: center;
+  }
+  .right-section1 span {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper-section1 {
+    margin: 0 auto;
+  }
+  .right-section1 {
+    padding: 0;
+  }
+  .left-section1 {
+    margin-left: 0;
+  }
+}
 </style>

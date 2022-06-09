@@ -18,7 +18,8 @@
           </p>
         </span>
         <a :class="card.class" href="#">
-          Learn More <font-awesome-icon icon="arrow-right-long" />
+          Learn More
+          <font-awesome-icon icon="arrow-right-long" />
         </a>
       </div>
     </div>
@@ -66,10 +67,14 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
+
 * {
   font-family: "Manrope", sans-serif;
 }
 
+/* MEDIA QUERIES */
+
+/* MEDIA QUERIES */
 .wrapper-section2 {
   margin-top: 8rem;
   display: flex;
@@ -123,15 +128,31 @@ export default {
 .wrapper-content .arrow1 {
   color: #e7b271;
 }
+.area .arrow1::after {
+  background-color: #e7b271;
+}
+
 .wrapper-content .arrow2 {
   color: #03bbe0;
 }
+.area .arrow2::after {
+  background-color: #03bbe0;
+}
+
 .wrapper-content .arrow3 {
   color: #f6129e;
 }
+.area .arrow3::after {
+  background-color: #f6129e;
+}
+
 .wrapper-content .arrow4 {
   color: #e27739;
 }
+.area .arrow4::after {
+  background-color: #e27739;
+}
+
 .wrapper-service .area {
   text-align: center;
 }
@@ -156,10 +177,11 @@ export default {
   bottom: 0;
   top: 27px;
   left: 30%;
-  background-color: #e7b271;
+  /* background-color: #e7b271; */
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
+
 .area a:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -170,5 +192,36 @@ export default {
 }
 .serv p {
   line-height: 32px;
+}
+
+@media only screen and (max-width: 1200px) {
+  /* .wrapper-section2 {
+    width: 97.1%;
+  } */
+  .wrapper-service {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .wrapper-service .serv {
+    padding: 10%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .wrapper-service {
+    width: 100%;
+    margin-left: -20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper-service {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+  }
 }
 </style>

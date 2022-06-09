@@ -1,5 +1,5 @@
 <template>
-  <header class="wrapper">
+  <header :class="positionY > 400 ? 'is_sticky' : ''" class="wrapper">
     <div class="navbar-logo">
       <a href="/">
         <img
@@ -123,6 +123,136 @@
             </div>
           </div>
         </div>
+        <li class="hamburger-menu">
+          <a @click.prevent="classStore.toggleSideNav()" href="">
+            <font-awesome-icon icon="bars" />
+          </a>
+        </li>
+        <div :class="{ onFocus: classStore.displaySideNav }" class="sidebarNav">
+          <div class="navHeader">
+            <h3>Sandbox</h3>
+            <button @click="classStore.hideSideNav">
+              <font-awesome-icon class="fa-icon" icon="xmark" />
+            </button>
+          </div>
+          <div class="navBody">
+            <ul class="navbarNav">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: start;
+                "
+                class="demos"
+              >
+                <li
+                  class="navbarNavList"
+                  v-for="(title, index) in classStore.sideNavComponents"
+                  :key="index"
+                >
+                  <div>
+                    <span
+                      @click.prevent="classStore.displayDropdown(title.titles)"
+                    >
+                      {{ title.titles }}
+                      <font-awesome-icon class="fa-icon" icon="angle-down" />
+                    </span>
+                    <div>
+                      <ul>
+                        <li
+                          class="dropdown"
+                          v-for="(component, index) in title.components"
+                          :key="index"
+                          :class="{
+                            showDrop: classStore.dropdownMenu == title.titles,
+                          }"
+                        >
+                          {{ component }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </div>
+              <!-- <div style="display: flex; flex-direction: column" class="demos">
+                <li>
+                  Pages
+                  <a href="">
+                    <font-awesome-icon class="fa-icon" icon="angle-down" />
+                  </a>
+                </li>
+                <ul style="display: flex; flex-direction: column">
+                  <li
+                    class="dropdown"
+                    v-for="(page, index) in classStore.sideNavComponents"
+                    :key="index"
+                    :class="{ showDrop: classStore.dropdownMenu }"
+                  >
+                    {{ page.components[0] }}
+                  </li>
+                </ul>
+              </div> -->
+              <!-- <li>
+                Projects
+                <a href="">
+                  <font-awesome-icon class="fa-icon" icon="angle-down" />
+                </a>
+                
+              </li>
+              <li>
+                Blog
+                <a href="">
+                  <font-awesome-icon class="fa-icon" icon="angle-down" />
+                </a>
+              </li>
+              <li>
+                Blocks
+                <a href="">
+                  <font-awesome-icon class="fa-icon" icon="angle-down" />
+                </a>
+              </li>
+              <li>
+                Documentation
+                <a href="">
+                  <font-awesome-icon class="fa-icon" icon="angle-down" />
+                </a>
+              </li> -->
+            </ul>
+            <div class="contactSideNav">
+              <a href="">info@email.com</a>
+              00 (123) 456 78 90
+            </div>
+            <div class="sideNavSocial">
+              <nav>
+                <a href=""
+                  ><font-awesome-icon
+                    class="social-icon"
+                    :icon="{
+                      prefix: 'fab',
+                      iconName: 'twitter',
+                    }" /><font-awesome-icon
+                    class="social-icon"
+                    :icon="{
+                      prefix: 'fab',
+                      iconName: 'facebook',
+                    }" /><font-awesome-icon
+                    class="social-icon"
+                    :icon="{
+                      prefix: 'fab',
+                      iconName: 'dribbble',
+                    }" /><font-awesome-icon
+                    class="social-icon"
+                    :icon="{
+                      prefix: 'fab',
+                      iconName: 'instagram',
+                    }" /><font-awesome-icon
+                    class="social-icon"
+                    :icon="{ prefix: 'fab', iconName: 'youtube' }"
+                /></a>
+              </nav>
+            </div>
+          </div>
+        </div>
       </ul>
     </div>
   </header>
@@ -131,44 +261,201 @@
     :class="{ focus: classStore.displaySidebar }"
     @click="classStore.removeSidebar()"
   ></div>
+  <div
+    :class="{ sideNavFocus: classStore.displaySideNav }"
+    class="overlaySidebar"
+    @click="classStore.hideSideNav()"
+  ></div>
 </template>
 
-<script setup>
+<script>
 import { useClassStore } from "../stores/class";
+import { ref, onMounted } from "vue";
 import NavItem from "../InsideComponents/Navbar/NavItem.vue";
 
-const classStore = useClassStore();
+export default {
+  setup() {
+    const classStore = useClassStore();
+
+    const positionY = ref(0);
+
+    function posY() {
+      positionY.value = window.pageYOffset;
+    }
+
+    onMounted(() => {
+      window.addEventListener("scroll", posY);
+    });
+
+    return {
+      classStore,
+      positionY,
+      posY,
+      onMounted,
+    };
+  },
+  components: {
+    NavItem,
+  },
+};
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 
-.wrapper.is_sticky {
+/* MEDIA QUERIES PHONE */
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: 19rem;
+  left: 0;
+  background-color: #1a232d;
+  overflow-y: scroll;
   position: fixed;
-  background-color: red;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  left: 0;
-  /* top: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  background-color: white;
-  -webkit-animation: 0.95s ease-in-out 0s normal none 1 running fadeInDown;
-  animation: 0.95s ease-in-out 0s normal none 1 running fadeInDown;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-  z-index: 1030; */
+  z-index: 100;
+  bottom: 0px;
+  transform: translateX(-20%);
+  padding: 17px;
+  /* display: none; */
+
+  position: fixed;
+  z-index: 100;
+  bottom: 0px;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  transform: translateX(-1000%);
+  transition: 1s;
+}
+.sidebarNav.onFocus {
+  transform: translateX(0%);
 }
 
-/* .wrapper.is_sticky:hover {
-  z-index: 0;
-} */
+.overlaySidebar {
+  position: absolute;
+  top: 0;
+  left: 20rem;
+  width: 73%;
+  height: 5000px;
+  z-index: 99;
+  transform: translateX(-1000%);
+  transition: 1s;
+}
 
+.overlaySidebar.sideNavFocus {
+  position: absolute;
+  top: 0;
+  left: 20rem;
+  width: 73%;
+  height: 5000rem;
+  z-index: 100;
+  transform: translateX(0%);
+}
+.navBody {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+.navHeader {
+  display: flex;
+  gap: 125px;
+}
+.navHeader h3 {
+  color: white;
+  font-size: 28px;
+}
+.navHeader h3:hover {
+  cursor: auto;
+}
+.navHeader button {
+  font-size: 20px;
+  color: white;
+  height: 40px;
+  width: 40px;
+  /* outline: none; */
+  background-color: #3e4c5b;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+.navHeader button:hover {
+  cursor: pointer;
+}
+.navbarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  font-size: 16px;
+}
+
+.navbarNav a {
+  color: white;
+}
+
+.sidebarNav .navbarNav .navbarNavList {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-left: -11px;
+  flex-direction: column;
+}
+
+.navbarNavList ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactSideNav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+.contactSideNav a {
+  text-decoration: none;
+  color: white;
+}
+.contactSideNav a:hover {
+  color: #e2880a;
+}
+.sideNavSocial a {
+  color: white;
+  display: flex;
+  gap: 15px;
+  font-size: 18px;
+}
+.sideNavSocial a .social-icon:hover {
+  transform: translateY(-5px);
+  transition: 0.2s;
+}
+
+.navbarNav .dropdown {
+  /* margin-top: 17px; */
+  display: none;
+  color: white;
+}
+.navBody .navbarNav .dropdown.showDrop {
+  display: flex;
+}
+/* ------------------- */
+
+.wrapper.is_sticky {
+  position: sticky;
+  z-index: 99;
+  right: auto;
+  left: auto;
+  background: rgba(255, 255, 255, 0.9);
+  /* padding: 5px; */
+  width: 100%;
+  max-width: 1263px;
+  margin: 14px auto;
+}
+
+.sandbox-logo {
+  margin-left: 60px;
+}
+.navbar-other .hamburger-menu {
+  display: none;
+}
 .overlay {
   position: absolute;
   top: 0;
@@ -197,9 +484,11 @@ const classStore = useClassStore();
   box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
   transform: translateX(1000%);
   transition: 1s;
-  /* display: none; */
 }
-
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
 .sidebar_info {
   cursor: default;
 }
@@ -340,7 +629,7 @@ const classStore = useClassStore();
   height: 8rem;
   position: absolute;
   top: 4rem;
-  left: 64.5rem;
+  left: 60.5rem;
   border-radius: 7px;
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
   /* opacity: 0;
@@ -388,11 +677,6 @@ const classStore = useClassStore();
   position: relative;
 }
 
-/* .sticky {
-  position: fixed;
-  z-index: -1;
-} */
-
 .hovered {
   z-index: 0;
 }
@@ -426,6 +710,7 @@ const classStore = useClassStore();
 
 .navbar-other {
   cursor: pointer;
+  margin-right: 60px;
 }
 
 .navbar-other ul {
@@ -454,5 +739,30 @@ const classStore = useClassStore();
 }
 .navbar-other ul li .info:hover {
   color: #e2880a;
+}
+
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .navbar-logo {
+    margin: 0;
+  }
+  .navbar-other .hamburger-menu {
+    display: block;
+    margin-top: 17px;
+    margin-left: 5px;
+  }
+  .navbar-other .hamburger-menu a {
+    text-decoration: none;
+    color: #343f52;
+    font-size: 23px;
+  }
+  .navbar-nav {
+    display: none;
+  }
 }
 </style>

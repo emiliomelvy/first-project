@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper-section3">
+    <div class="right-section3">
+      <img src="../assets/img/i3.png" alt="" />
+    </div>
     <div class="left-section3">
       <div class="wrapper-left3">
         <h2>Analyze Now</h2>
@@ -19,9 +22,6 @@
           </button>
         </form>
       </div>
-    </div>
-    <div class="right-section3">
-      <img src="../assets/img/i3.png" alt="" />
     </div>
   </div>
 </template>
@@ -88,5 +88,72 @@ export default {};
 
 .right-section3 img {
   width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .wrapper-section3 {
+    /* width: 97.1%; */
+    margin: 30rem 5rem 10rem 5rem;
+  }
+  .right-section3 img {
+    min-width: 300px;
+    min-height: 300px;
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper-section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .wrapper-section3 .left-section3 {
+    width: 100%;
+  }
+
+  .wrapper-section3 .right-section3 {
+    width: 60%;
+  }
+
+  .wrapper-section3 .right-section3 img {
+    min-width: 0;
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .wrapper-left3 {
+    align-items: center;
+  }
+
+  .left-section3 h2 {
+    text-align: center;
+  }
+
+  .left-section3 h3 {
+    text-align: justify;
+    width: 80%;
+  }
+  .left-section3 p {
+    text-align: justify;
+    width: 80%;
+  }
+
+  .left-section3 .wrapper-left3 form {
+    justify-content: center;
+    width: 78%;
+  }
+  .left-section3 input {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper-section3 {
+    margin: 80rem auto 10rem;
+  }
 }
 </style>

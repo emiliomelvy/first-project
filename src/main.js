@@ -22,6 +22,7 @@ import {
   faAngleDown,
   faAngleRight,
   faXmark,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -41,7 +42,8 @@ library.add(
   faArrowsUpDown,
   faAngleDown,
   faAngleRight,
-  faXmark
+  faXmark,
+  faBars
 );
 
 const app = createApp(App);
