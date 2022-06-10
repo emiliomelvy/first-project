@@ -174,49 +174,6 @@
                   </div>
                 </li>
               </div>
-              <!-- <div style="display: flex; flex-direction: column" class="demos">
-                <li>
-                  Pages
-                  <a href="">
-                    <font-awesome-icon class="fa-icon" icon="angle-down" />
-                  </a>
-                </li>
-                <ul style="display: flex; flex-direction: column">
-                  <li
-                    class="dropdown"
-                    v-for="(page, index) in classStore.sideNavComponents"
-                    :key="index"
-                    :class="{ showDrop: classStore.dropdownMenu }"
-                  >
-                    {{ page.components[0] }}
-                  </li>
-                </ul>
-              </div> -->
-              <!-- <li>
-                Projects
-                <a href="">
-                  <font-awesome-icon class="fa-icon" icon="angle-down" />
-                </a>
-                
-              </li>
-              <li>
-                Blog
-                <a href="">
-                  <font-awesome-icon class="fa-icon" icon="angle-down" />
-                </a>
-              </li>
-              <li>
-                Blocks
-                <a href="">
-                  <font-awesome-icon class="fa-icon" icon="angle-down" />
-                </a>
-              </li>
-              <li>
-                Documentation
-                <a href="">
-                  <font-awesome-icon class="fa-icon" icon="angle-down" />
-                </a>
-              </li> -->
             </ul>
             <div class="contactSideNav">
               <a href="">info@email.com</a>

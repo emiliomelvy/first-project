@@ -59,8 +59,12 @@
           Subscribe to our newsletter to get our news & deals delivered to you.
         </p>
         <form action="#">
-          <input type="email" placeholder="Email Address" />
-          <button>Join</button>
+          <input
+            v-model="emailInput"
+            type="email"
+            placeholder="Email Address"
+          />
+          <button @click.prevent="onSubmit">Join</button>
         </form>
       </div>
     </div>
@@ -68,9 +72,11 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
+      emailInput: "",
       lists: [
         {
           anchor: "About Us",
@@ -89,6 +95,24 @@ export default {
         },
       ],
     };
+  },
+
+  methods: {
+    onSubmit() {
+      const emails = {
+        email: this.emailInput,
+      };
+
+      axios
+        .create({
+          baseURL: "https://landingpage-task-default-rtdb.firebaseio.com/",
+        })
+        .post("email.json", emails)
+        .then((response) => console.log(response))
+        .catch((err) => err.message);
+
+      this.emailInput = "";
+    },
   },
 };
 </script>
