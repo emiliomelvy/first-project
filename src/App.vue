@@ -18,6 +18,9 @@ const store = useCounterStore();
 </script>
 
 <template>
+  <!-- <router-link to="/email">Email</router-link> -->
+  <!-- <router-link to="/section1">Section1</router-link> -->
+  <!-- <router-view /> -->
   <Navbar />
   <Section1 />
   <Section2 />
@@ -41,6 +44,10 @@ const store = useCounterStore();
   margin: 0;
   top: 0;
   padding: 0;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 991px) {

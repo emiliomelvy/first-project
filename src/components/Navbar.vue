@@ -143,7 +143,7 @@
                   flex-direction: column;
                   align-items: start;
                 "
-                class="demos"
+                class="navDropdown"
               >
                 <li
                   class="navbarNavList"
@@ -166,8 +166,16 @@
                           :class="{
                             showDrop: classStore.dropdownMenu == title.titles,
                           }"
+                          @click="classStore.displayComponents(judul)"
                         >
-                          {{ component }}
+                          {{ component.first }}
+                          <ul
+                            v-for="(listDrop, index) in component.dropMenu"
+                            :key="index"
+                            class="dropdownComponent"
+                          >
+                            <li>{{ listDrop }}</li>
+                          </ul>
                         </li>
                       </ul>
                     </div>
@@ -260,7 +268,9 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 
-/* MEDIA QUERIES PHONE */
+/* .dropdown .dropdownComponent {
+  display: none;
+} */
 
 .sidebarNav {
   display: flex;
@@ -342,6 +352,11 @@ export default {
   flex-direction: column;
   gap: 17px;
   font-size: 16px;
+}
+
+.navbarNav .navDropdown span {
+  display: flex;
+  gap: 10rem;
 }
 
 .navbarNav a {
@@ -699,9 +714,9 @@ export default {
 }
 
 @media only screen and (max-width: 1200px) {
-  .wrapper {
+  /* .wrapper {
     width: 85%;
-  }
+  } */
 }
 
 @media only screen and (max-width: 991px) {

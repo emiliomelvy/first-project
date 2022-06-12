@@ -17,9 +17,11 @@
           et.
         </p>
         <form action="#">
-          <input type="url" placeholder="Enter Website URL" /><button>
-            Check
-          </button>
+          <input
+            v-model="websiteUrl"
+            type="url"
+            placeholder="Enter Website URL"
+          /><button @click.prevent="onSubmit">Check</button>
         </form>
       </div>
     </div>
@@ -27,7 +29,32 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      websiteUrl: "",
+    };
+  },
+  methods: {
+    onSubmit() {
+      const webUrl = {
+        webUrl: this.websiteUrl,
+      };
+
+      axios
+        .create({
+          baseURL: "https://landingpage-task-default-rtdb.firebaseio.com/",
+        })
+        .post("web.json", webUrl)
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err.message));
+
+      this.websiteUrl = "";
+    },
+  },
+};
 </script>
 
 <style scoped>

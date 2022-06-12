@@ -12,6 +12,7 @@ export const useClassStore = defineStore({
     positionY: 0,
     displaySideNav: false,
     dropdownMenu: null,
+    dropdownComponents: null,
     sideNavComponents: [
       {
         titles: "Demos",
@@ -44,19 +45,32 @@ export const useClassStore = defineStore({
           "Demo XXVI",
           "Demo XXVII",
         ],
+        dropMenu: "",
       },
       {
         titles: "Pages",
         components: [
-          "Services",
-          "About",
-          "Shop",
-          "Contact",
-          "Career",
-          "Utility",
-          "Pricing",
-          "One Page",
+          { first: "Services", dropMenu: ["Services I", "Services II"] },
+          { first: "About", dropMenu: ["About I", "About II"] },
+          // "Services",
+          // "About",
+          // "Shop",
+          // "Contact",
+          // "Career",
+          // "Utility",
+          // "Pricing",
+          // "One Page",
         ],
+        // dropMenu: [
+        //   { services: ["Services I", "Services II"] },
+        //   { about: ["About I", "About II"] },
+        //   { shop: ["About I", "About II"] },
+        //   { contact: ["About I", "About II"] },
+        //   { career: ["About I", "About II"] },
+        //   { utility: ["About I", "About II"] },
+        //   { pricing: ["About I", "About II"] },
+        //   { onepage: ["About I", "About II"] },
+        // ],
       },
     ],
   }),
@@ -78,6 +92,10 @@ export const useClassStore = defineStore({
     },
     displayDropdown(drop) {
       this.dropdownMenu = this.dropdownMenu === drop ? null : drop;
+    },
+    displayComponents(judul) {
+      this.dropdownComponents =
+        this.dropdownComponents === judul ? null : judul;
     },
   },
 });
