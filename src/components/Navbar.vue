@@ -1,13 +1,15 @@
 <template>
   <header :class="positionY > 400 ? 'is_sticky' : ''" class="wrapper">
     <div class="navbar-logo">
-      <a href="/">
-        <img
-          class="sandbox-logo"
-          src="../assets/img/logo-dark.png"
-          alt="sandbox"
-        />
-      </a>
+      <router-link to="/">
+        <a>
+          <img
+            class="sandbox-logo"
+            src="../assets/img/logo-dark.png"
+            alt="sandbox"
+          />
+        </a>
+      </router-link>
     </div>
     <div class="navbar-nav">
       <div class="nav-item-wrapper">
@@ -137,14 +139,7 @@
           </div>
           <div class="navBody">
             <ul class="navbarNav">
-              <div
-                style="
-                  display: flex;
-                  flex-direction: column;
-                  align-items: start;
-                "
-                class="navDropdown"
-              >
+              <div class="navDropdown">
                 <li
                   class="navbarNavList"
                   v-for="(title, index) in classStore.sideNavComponents"
@@ -166,13 +161,24 @@
                           :class="{
                             showDrop: classStore.dropdownMenu == title.titles,
                           }"
-                          @click="classStore.displayComponents(judul)"
+                          @click="classStore.displayComponents(component.first)"
                         >
                           {{ component.first }}
+                          <font-awesome-icon
+                            v-if="component.dropMenu"
+                            class="fa-icon"
+                            icon="angle-down"
+                          />
+
                           <ul
                             v-for="(listDrop, index) in component.dropMenu"
                             :key="index"
                             class="dropdownComponent"
+                            :class="{
+                              active:
+                                classStore.dropdownComponents ==
+                                component.first,
+                            }"
                           >
                             <li>{{ listDrop }}</li>
                           </ul>
@@ -268,9 +274,16 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 
-/* .dropdown .dropdownComponent {
+.dropdown .dropdownComponent {
   display: none;
-} */
+}
+.dropdown .dropdownComponent.active {
+  display: block;
+}
+.dropdown .dropdownComponent.active li {
+  color: white;
+  margin-top: 13px;
+}
 
 .sidebarNav {
   display: flex;
@@ -354,9 +367,21 @@ export default {
   font-size: 16px;
 }
 
+.navbarNav .navDropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
 .navbarNav .navDropdown span {
   display: flex;
-  gap: 10rem;
+  width: 18rem;
+  justify-content: space-between;
+}
+
+.navbarNav .navDropdown .fa-icon {
+  font-size: 13px;
 }
 
 .navbarNav a {
@@ -369,6 +394,10 @@ export default {
   justify-content: space-between;
   margin-left: -11px;
   flex-direction: column;
+}
+
+.navbarNavList span {
+  margin-bottom: 7px;
 }
 
 .navbarNavList ul {
@@ -401,13 +430,23 @@ export default {
 }
 
 .navbarNav .dropdown {
-  /* margin-top: 17px; */
+  margin-top: 10px;
+  margin-bottom: 8px;
   display: none;
   color: white;
 }
+.navbarNav .dropdown .fa-icon {
+  position: relative;
+  top: -21px;
+  left: 16.6rem;
+}
+
 .navBody .navbarNav .dropdown.showDrop {
   display: flex;
+  flex-direction: column;
+  align-items: start;
 }
+
 /* ------------------- */
 
 .wrapper.is_sticky {

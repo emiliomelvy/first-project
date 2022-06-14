@@ -1,39 +1,50 @@
-<script setup>
-import { useCounterStore } from "./stores/counter";
-import Navbar from "./components/Navbar.vue";
-import Section1 from "./components/Section1.vue";
-import Section2 from "./components/Section2.vue";
-import Section3 from "./components/Section3.vue";
-import Section4 from "./components/Section4.vue";
-import Section5 from "./components/Section5.vue";
-import Section6 from "./components/Section6.vue";
-import Section7 from "./components/Section7.vue";
-import Section8 from "./components/Section8.vue";
-import Section9 from "./components/Section9.vue";
-import Section10 from "./components/Section10.vue";
-import Footer from "./components/Footer.vue";
-import ProgressScroll from "./components/ProgressScroll.vue";
+<script>
+// import { useCounterStore } from "./stores/counter";
+// import Navbar from "./components/Navbar.vue";
+// import HeroGrow from "./components/HeroGrow.vue";
+// import ServiceCard from "./components/ServiceCard.vue";
+// import HeroUrl from "./components/HeroUrl.vue";
+// import HeroWorkingSteps from "./components/HeroWorkingSteps.vue";
+// import HeroSolutions from "./components/HeroSolutions.vue";
+// import ProfileCard from "./components/ProfileCard.vue";
+// import HeroControl from "./components/HeroControl.vue";
+// import TestimonialCard from "./components/TestimonialCard.vue";
+// import CardPlan from "./components/CardPlan.vue";
+// import HeroClients from "./components/HeroClients.vue";
+// import Footer from "./components/Footer.vue";
+// import ProgressScroll from "./components/ProgressScroll.vue";
 
-const store = useCounterStore();
+// const store = useCounterStore();
 </script>
 
 <template>
+  <!-- <router-link to="/">App</router-link>
+
+  <router-link to="/email">Email</router-link> -->
+
+  <!-- <router-link to="/">Home</router-link> -->
+
   <!-- <router-link to="/email">Email</router-link> -->
-  <!-- <router-link to="/section1">Section1</router-link> -->
+
+  <router-view></router-view>
+
   <!-- <router-view /> -->
-  <Navbar />
-  <Section1 />
-  <Section2 />
-  <Section3 />
-  <Section4 />
-  <Section5 />
-  <Section6 />
-  <Section7 />
-  <Section8 />
-  <Section9 />
-  <Section10 />
+  <!-- <TestingVue /> -->
+  <!-- <Home />
+  <Email /> -->
+  <!-- <Navbar />
+  <HeroGrow />
+  <ServiceCard />
+  <HeroUrl />
+  <HeroWorkingSteps />
+  <HeroSolutions />
+  <ProfileCard />
+  <HeroControl />
+  <TestimonialCard />
+  <CardPlan />
+  <HeroClients />
   <Footer />
-  <ProgressScroll />
+  <ProgressScroll /> -->
 </template>
 
 <style>

@@ -69,6 +69,14 @@
       </div>
     </div>
   </div>
+
+  <!-- POPUP -->
+  <div class="popup" :class="{ overlay: openPopup }">
+    <font-awesome-icon class="icon" icon="circle-check" />
+    <h2>Thank You for Joining!</h2>
+    <p class="content">Your Email Has Been Send</p>
+  </div>
+  <!--  -->
 </template>
 
 <script>
@@ -77,6 +85,7 @@ export default {
   data() {
     return {
       emailInput: "",
+      openPopup: false,
       lists: [
         {
           anchor: "About Us",
@@ -103,21 +112,68 @@ export default {
         email: this.emailInput,
       };
 
-      axios
-        .create({
-          baseURL: "https://landingpage-task-default-rtdb.firebaseio.com/",
-        })
-        .post("email.json", emails)
-        .then((response) => console.log(response))
-        .catch((err) => err.message);
+      if (!emails.value) {
+        alert("Please Insert Email!");
+      } else {
+        axios
+          .create({
+            baseURL: "https://landingpage-task-default-rtdb.firebaseio.com/",
+          })
+          .post("email.json", emails)
+          .then(
+            (response) => console.log(response),
+            (this.openPopup = !this.openPopup)
+          )
+          .catch((err) => err.message);
 
-      this.emailInput = "";
+        this.emailInput = "";
+
+        setTimeout(() => {
+          this.openPopup = false;
+        }, 2000);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
+/* POPUP */
+
+.popup {
+  width: 200px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 478rem;
+  /* top: 16rem; */
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 15px 30px 30px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.popup.overlay {
+  visibility: visible;
+  position: fixed;
+  top: 16rem;
+  /* top: 50%; */
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 0 0 1000rem rgba(0, 0, 0, 0.5);
+}
+
+.popup .icon {
+  font-size: 32px;
+}
+
+/* ----- */
 .container {
   background-color: #303e4e;
   padding-bottom: 5rem;
@@ -272,6 +328,10 @@ hr {
       "header1 header2 header3"
       "footer footer footer";
   }
+
+  .header h3 {
+    font-size: 37px;
+  }
   .sandbox {
     grid-area: header1;
     margin: 0 auto;
@@ -309,6 +369,10 @@ hr {
     flex-direction: column;
     padding-left: 10%;
   }
+
+  .header h3 {
+    font-size: 24px;
+  }
   .sandbox {
     margin: 0 0 10%;
   }
@@ -320,6 +384,12 @@ hr {
   }
   .newsletter {
     margin: 0 0 10%;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .newsletter button {
+    width: 15%;
   }
 }
 </style>

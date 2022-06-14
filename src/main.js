@@ -4,7 +4,6 @@ import App from "./App.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
-  fab,
   faTwitter,
   faFacebook,
   faDribbble,

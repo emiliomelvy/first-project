@@ -12,7 +12,9 @@
         visibility in search results.
       </p>
       <span>
-        <a href="#" class="rounded-pill">Try It For Free</a>
+        <router-link to="/email">
+          <a class="rounded-pill">Try It For Free</a>
+        </router-link>
       </span>
     </div>
   </div>
@@ -66,8 +68,6 @@ export default {};
   color: #fff;
   background-color: #fab758;
   padding: 15px 24px;
-  /* margin-top: 20px; */
-  /* margin-bottom: 10px; */
   border-radius: 30px;
   text-align: center;
   display: inline-block;
