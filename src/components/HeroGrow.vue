@@ -90,12 +90,15 @@ export default {};
   .wrapper-section1 {
     display: flex;
     flex-direction: column;
+    /* margin: 100px auto; */
+    margin-left: 40px;
   }
   .right-section1 {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 85%;
+    width: 100%;
+    padding: 0;
   }
   .right-section1 h1 {
     text-align: center;

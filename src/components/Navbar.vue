@@ -758,9 +758,22 @@ export default {
   } */
 }
 
+@media only screen and (max-width: 769px) {
+  .wrapper.is_sticky {
+    width: 55rem;
+  }
+}
+
 @media only screen and (max-width: 991px) {
+  .wrapper.is_sticky {
+    width: 100%;
+  }
   .navbar-logo {
     margin: 0;
+  }
+
+  .navbar-other {
+    margin-right: 0;
   }
   .navbar-other .hamburger-menu {
     display: block;

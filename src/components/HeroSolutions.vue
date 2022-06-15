@@ -155,4 +155,10 @@ export default {
     width: 80%;
   }
 }
+
+@media only screen and (max-width: 415px) {
+  .wrapper-section5 {
+    margin: 0 auto;
+  }
+}
 </style>

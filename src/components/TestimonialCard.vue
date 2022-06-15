@@ -358,4 +358,18 @@ export default {
     height: 13rem;
   }
 }
+
+@media only screen and (max-width: 415px) {
+  .card-body2 {
+    height: 18rem;
+  }
+
+  .card-body3 {
+    height: 18rem;
+  }
+
+  .card-body4 {
+    height: 16rem;
+  }
+}
 </style>

@@ -135,7 +135,7 @@ export default {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-left: 0;
+    margin-left: 4%;
     margin-right: 0;
   }
   .wrapper-section3 .left-section3 {
@@ -181,6 +181,12 @@ export default {
 @media only screen and (max-width: 768px) {
   .wrapper-section3 {
     margin: 80rem auto 10rem;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .wrapper-section3 .right-section3 {
+    width: 80%;
   }
 }
 </style>

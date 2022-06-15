@@ -265,25 +265,27 @@ export default {
   }
 
   .right-section4 {
-    width: 100%;
+    margin-left: 3rem;
   }
+
   .left-section4 {
-    width: 80%;
+    width: 100%;
+    margin-top: 5rem;
   }
   .card4-1-body {
-    width: 80%;
+    width: 42rem;
     margin: 20px auto;
     display: flex;
     justify-content: start;
   }
   .card4-2-body {
-    width: 80%;
+    width: 42rem;
     margin: 45px auto;
     display: flex;
     justify-content: start;
   }
   .card4-3-body {
-    width: 80%;
+    width: 42rem;
     margin: 20px auto;
     display: flex;
     justify-content: start;
@@ -302,6 +304,12 @@ export default {
   }
   .card4-4-body {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .wrapper-section4 {
+    margin: 0 2px;
   }
 }
 </style>

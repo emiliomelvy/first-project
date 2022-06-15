@@ -114,26 +114,7 @@ export default {
   transition: 0.3s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
-/* 
-.test {
-  background: white;
-  height: 209px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-.test::before {
-  background: #fab758;
-  bottom: 163%;
-  content: "";
-  display: block;
-  height: 177%;
-  position: absolute;
-  right: 0px;
-  transform-origin: 50% 74.5%;
-  transform: rotate(-184deg);
-  width: 109%;
-} */
+
 .test2 {
   background: #303e4e;
   height: 87px;
@@ -167,6 +148,9 @@ export default {
   .right-sect10 {
     width: 100%;
   }
+  .test2 {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -176,6 +160,12 @@ export default {
     gap: 40px;
     margin: 10% auto;
     justify-items: center;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .wrapper-section10 {
+    margin: 10rem 2rem 0;
   }
 }
 </style>

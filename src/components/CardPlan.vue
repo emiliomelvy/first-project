@@ -439,4 +439,15 @@ input:checked + .slider::before {
     width: 80%;
   }
 }
+
+@media only screen and (max-width: 415px) {
+  .card-body1 {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .card-body2 {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
 </style>

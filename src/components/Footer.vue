@@ -112,7 +112,7 @@ export default {
         email: this.emailInput,
       };
 
-      if (!emails.value) {
+      if (!this.emailInput) {
         alert("Please Insert Email!");
       } else {
         axios
@@ -146,7 +146,6 @@ export default {
   border-radius: 6px;
   position: absolute;
   top: 478rem;
-  /* top: 16rem; */
   left: 50%;
   transform: translate(-50%, -50%) scale(0.1);
   text-align: center;
@@ -164,7 +163,6 @@ export default {
   visibility: visible;
   position: fixed;
   top: 16rem;
-  /* top: 50%; */
   transform: translate(-50%, -50%) scale(1);
   box-shadow: 0 0 0 1000rem rgba(0, 0, 0, 0.5);
 }
@@ -320,6 +318,9 @@ hr {
 }
 
 @media only screen and (max-width: 991px) {
+  .container {
+    width: 55.1rem;
+  }
   .body {
     display: grid;
     justify-content: space-evenly;
@@ -348,12 +349,15 @@ hr {
 
   .newsletter {
     grid-area: footer;
-    width: 100%;
-    margin: 0 10%;
+    width: 40rem;
+    margin-left: 4rem;
+    margin-top: 5rem;
   }
-
+  .newsletter form {
+    width: 39rem;
+  }
   .newsletter input {
-    width: 60%;
+    width: 20rem;
     text-align: left;
     padding: 5px 15px;
   }
@@ -390,6 +394,42 @@ hr {
 @media only screen and (max-width: 630px) {
   .newsletter button {
     width: 15%;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .container {
+    width: 100%;
+  }
+  .newsletter button {
+    width: 20%;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    align-items: start;
+    padding: 30px;
+    height: 23vh;
+    justify-content: space-evenly;
+  }
+
+  .header h3 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .newsletter {
+    width: 100%;
+  }
+
+  .newsletter form {
+    width: 100%;
+  }
+
+  .newsletter input {
+    width: 12rem;
   }
 }
 </style>

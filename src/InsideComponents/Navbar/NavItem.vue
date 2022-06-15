@@ -22,21 +22,29 @@
       </div>
     </li>
     <li class="pages">
-      {{ pages[0].title }}
+      Pages
       <a href="/"><font-awesome-icon class="fa-icon" icon="angle-down" /></a>
-      <div class="pages-dropdown">
-        <ul class="services">
+      <di v class="pages-dropdown">
+        <ul
+          v-for="(page, index) in pagesContent"
+          :key="index"
+          :class="page.classTitle"
+        >
           <li>
-            <a href="/">{{ pages[0].dropdown }}</a>
-            <font-awesome-icon class="pages-icon1" icon="angle-right" />
+            <a href="/">{{ page.dropdown }}</a>
+            <font-awesome-icon
+              v-if="page.dropdownObject"
+              :class="page.classIcon"
+              icon="angle-right"
+            />
           </li>
-          <div class="service-wrapper">
-            <li v-for="(service, key) in pages[0].dropdownObject" :key="key">
-              <a href="/">{{ service }}</a>
+          <div :class="page.classDiv">
+            <li v-for="(object, index) in page.dropdownObject" :key="index">
+              <a href="/">{{ object }}</a>
             </li>
           </div>
         </ul>
-        <ul class="about">
+        <!-- <ul class="about">
           <li>
             <a href="/">{{ pages[1].dropdown }}</a
             ><font-awesome-icon class="pages-icon2" icon="angle-right" />
@@ -101,8 +109,8 @@
           <li v-for="(dropdown, index) in pages[6].dropdown" :key="index">
             <a href="/">{{ dropdown }}</a>
           </li>
-        </ul>
-      </div>
+        </ul> -->
+      </di>
     </li>
 
     <!-- END OF PAGES CONTENT -->
@@ -241,20 +249,22 @@ export default {
         { image: "/src/assets/img/dropdown/mi26.jpg" },
         { image: "/src/assets/img/dropdown/mi27.jpg" },
       ],
-      pages: [
+      pagesContent: [
         {
-          title: "Pages",
-          href: "/",
           dropdown: "Service",
           dropdownObject: ["Services I", "Services II"],
+          classTitle: "services",
+          classIcon: "pages-icon1",
+          classDiv: "service-wrapper",
         },
         {
-          href: "/",
           dropdown: "About",
           dropdownObject: ["About I", "About II"],
+          classTitle: "about",
+          classIcon: "pages-icon2",
+          classDiv: "about-wrapper",
         },
         {
-          href: "/",
           dropdown: "Shop",
           dropdownObject: [
             "Shop I",
@@ -263,23 +273,29 @@ export default {
             "Shopping Cart",
             "Checkout",
           ],
+          classTitle: "shop",
+          classIcon: "pages-icon3",
+          classDiv: "shop-wrapper",
         },
         {
-          href: "/",
           dropdown: "Contact",
           dropdownObject: ["Contact I", "Contact II", "Contact III"],
+          classTitle: "contact",
+          classIcon: "pages-icon4",
+          classDiv: "contact-wrapper",
         },
         {
-          href: "/",
           dropdown: "Career",
           dropdownObject: [
             "Job Listing I",
             "Job Listing II",
             "Job Description",
           ],
+          classTitle: "career",
+          classIcon: "pages-icon5",
+          classDiv: "career-wrapper",
         },
         {
-          href: "/",
           dropdown: "Utility",
           dropdownObject: [
             "404 Not Found",
@@ -290,10 +306,15 @@ export default {
             "Sign Up II",
             "Terms",
           ],
+          classTitle: "utility",
+          classIcon: "pages-icon6",
+          classDiv: "utility-wrapper",
         },
         {
-          ref: "/",
-          dropdown: ["Pricing", "One Page"],
+          dropdown: "Pricing",
+        },
+        {
+          dropdown: "One Page",
         },
       ],
       projects: [

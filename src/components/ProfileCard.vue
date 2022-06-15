@@ -191,6 +191,10 @@ export default {
     .wrapper-sect6 h3 {
       max-width: 100%;
     }
+
+    .wrapper-sect6 .card {
+      margin-left: 4rem;
+    }
   }
 }
 

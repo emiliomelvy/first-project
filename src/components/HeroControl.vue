@@ -150,7 +150,6 @@ export default {
   }
 
   .right-sect7 img {
-    /* width: 80%; */
     margin: 5rem auto;
   }
   .table {
