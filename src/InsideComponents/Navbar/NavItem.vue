@@ -24,7 +24,7 @@
     <li class="pages">
       Pages
       <a href="/"><font-awesome-icon class="fa-icon" icon="angle-down" /></a>
-      <di v class="pages-dropdown">
+      <div class="pages-dropdown">
         <ul
           v-for="(page, index) in pagesContent"
           :key="index"
@@ -110,7 +110,7 @@
             <a href="/">{{ dropdown }}</a>
           </li>
         </ul> -->
-      </di>
+      </div>
     </li>
 
     <!-- END OF PAGES CONTENT -->

@@ -222,6 +222,9 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
+  .wrapper-section2 {
+    margin: 8rem auto;
+  }
   .wrapper-service {
     display: flex;
     flex-direction: column;
@@ -232,7 +235,8 @@ export default {
 
 @media only screen and (max-width: 415px) {
   .service-h3 {
-    max-width: 85%;
+    max-width: 100%;
+    margin-left: 0;
   }
 
   .wrapper-service {

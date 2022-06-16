@@ -319,7 +319,7 @@ hr {
 
 @media only screen and (max-width: 991px) {
   .container {
-    width: 55.1rem;
+    width: 54.48rem;
   }
   .body {
     display: grid;
@@ -367,7 +367,22 @@ hr {
   }
 }
 
+@media only screen and (max-width: 913px) {
+  .container {
+    width: 60.36rem;
+  }
+}
+
+@media only screen and (max-width: 821px) {
+  .container {
+    width: 54.48rem;
+  }
+}
+
 @media only screen and (max-width: 768px) {
+  .container {
+    width: 48.61rem;
+  }
   .body {
     display: flex;
     flex-direction: column;
@@ -394,6 +409,19 @@ hr {
 @media only screen and (max-width: 630px) {
   .newsletter button {
     width: 15%;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .container {
+    width: 34.36rem;
+  }
+
+  .newsletter {
+    width: 100%;
+  }
+  .newsletter form {
+    width: 100%;
   }
 }
 
@@ -430,6 +458,16 @@ hr {
 
   .newsletter input {
     width: 12rem;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .container {
+    width: 23.61rem;
+  }
+
+  .body {
+    padding-left: 5%;
   }
 }
 </style>

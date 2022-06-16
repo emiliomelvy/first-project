@@ -26,6 +26,12 @@
       </div>
     </div>
   </div>
+  <!-- POPUP -->
+  <div class="popup" :class="{ overlay: openPopup }">
+    <font-awesome-icon class="icon" icon="circle-check" />
+    <h2>Thank You for Joining!</h2>
+    <p class="content">Your Email Has Been Send</p>
+  </div>
 </template>
 
 <script>
@@ -35,6 +41,7 @@ export default {
   data() {
     return {
       websiteUrl: "",
+      openPopup: false,
     };
   },
   methods: {
@@ -43,21 +50,66 @@ export default {
         webUrl: this.websiteUrl,
       };
 
-      axios
-        .create({
-          baseURL: "https://landingpage-task-default-rtdb.firebaseio.com/",
-        })
-        .post("web.json", webUrl)
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err.message));
+      if (!this.websiteUrl) {
+        alert("Please Insert Website Url!");
+      } else {
+        axios
+          .create({
+            baseURL: "https://landingpage-task-default-rtdb.firebaseio.com/",
+          })
+          .post("web.json", webUrl)
+          .then(
+            (response) => console.log(response),
+            (this.openPopup = !this.openPopup)
+          )
+          .catch((err) => console.log(err.message));
 
-      this.websiteUrl = "";
+        this.websiteUrl = "";
+
+        setTimeout(() => {
+          this.openPopup = false;
+        }, 2000);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
+/* POPUP */
+
+.popup {
+  width: 200px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 478rem;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 15px 30px 30px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.popup.overlay {
+  visibility: visible;
+  position: fixed;
+  top: 16rem;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 0 0 1000rem rgba(0, 0, 0, 0.5);
+}
+
+.popup .icon {
+  font-size: 32px;
+}
+
+/* ----- */
 .wrapper-section3 {
   display: flex;
   gap: 2rem;

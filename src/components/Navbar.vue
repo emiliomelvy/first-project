@@ -758,12 +758,6 @@ export default {
   } */
 }
 
-@media only screen and (max-width: 769px) {
-  .wrapper.is_sticky {
-    width: 55rem;
-  }
-}
-
 @media only screen and (max-width: 991px) {
   .wrapper.is_sticky {
     width: 100%;
@@ -787,6 +781,33 @@ export default {
   }
   .navbar-nav {
     display: none;
+  }
+
+  .en-content {
+    left: 40.6rem;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .wrapper.is_sticky {
+    width: 48.6rem;
+  }
+}
+
+@media only screen and (max-width: 541px) {
+  .wrapper.is_sticky {
+    width: 34.3rem;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .wrapper.is_sticky {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .wrapper.is_sticky {
+    width: 23.6rem;
   }
 }
 </style>

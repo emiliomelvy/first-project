@@ -433,10 +433,12 @@ input:checked + .slider::before {
   }
 
   .card-body1 {
-    width: 80%;
+    width: 100%;
+    margin: 0;
   }
   .card-body2 {
-    width: 80%;
+    width: 100%;
+    margin: 0;
   }
 }
 

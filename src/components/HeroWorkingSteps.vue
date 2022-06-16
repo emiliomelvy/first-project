@@ -292,6 +292,15 @@ export default {
   }
 }
 
+@media only screen and (max-width: 769px) {
+  .wrapper-section4 {
+    margin: 0 4rem;
+  }
+  .right-section4 {
+    margin-left: 1rem;
+  }
+}
+
 @media only screen and (max-width: 580px) {
   .card4-1-body {
     width: 100%;
@@ -309,7 +318,16 @@ export default {
 
 @media only screen and (max-width: 415px) {
   .wrapper-section4 {
-    margin: 0 2px;
+    margin: 0;
+  }
+
+  .right-section4 {
+    margin-left: 0;
+  }
+
+  .left-section4 {
+    align-items: center;
+    text-align: justify;
   }
 }
 </style>

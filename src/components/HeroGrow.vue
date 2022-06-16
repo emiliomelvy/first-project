@@ -112,10 +112,6 @@ export default {};
   }
 }
 
-/* IPAD AIR */
-
-/*  */
-
 @media only screen and (max-width: 768px) {
   .wrapper-section1 {
     margin: 0 auto;

@@ -202,6 +202,7 @@ export default {
   .wrapper-sect6 .card {
     display: flex;
     flex-direction: column;
+    margin-left: 0;
   }
   .card-body {
     margin: 0 auto;
